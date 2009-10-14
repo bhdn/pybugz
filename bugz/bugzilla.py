@@ -367,7 +367,6 @@ class Bugz:
 		unique = [u for u in unique if u]
 		if len(unique) < 3:
 			for i, e in enumerate(unique):
-				e = unique[i]
 				n = i + 1
 				qparams['email%d' % n] = e
 				qparams['emailassigned_to%d' % n] = int(e == assigned_to)
