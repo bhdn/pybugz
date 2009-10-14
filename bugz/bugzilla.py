@@ -275,9 +275,8 @@ class Bugz:
 		# parse the results into dicts.
 		results = []
 		columns = []
-		rows = []
 
-		for r in csv.reader(resp): rows.append(r)
+		rows = list(cvs.reader(resp))
 		for field in rows[0]:
 			if config.choices['column_alias'].has_key(field):
 				columns.append(config.choices['column_alias'][field])
@@ -367,7 +366,7 @@ class Bugz:
 		unique = list(set([assigned_to, cc, reporter, commenter]))
 		unique = [u for u in unique if u]
 		if len(unique) < 3:
-			for i in range(len(unique)):
+			for i, e in enumerate(unique):
 				e = unique[i]
 				n = i + 1
 				qparams['email%d' % n] = e
