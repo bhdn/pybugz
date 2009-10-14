@@ -276,7 +276,7 @@ class Bugz:
 		results = []
 		columns = []
 
-		rows = list(cvs.reader(resp))
+		rows = list(csv.reader(resp))
 		for field in rows[0]:
 			if config.choices['column_alias'].has_key(field):
 				columns.append(config.choices['column_alias'][field])
